@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for <YOUR TOOL>.
-GH_REPO="https://github.com/matter-labs/era-compiler-solidit"
+GH_REPO="http://github.com/matter-labs/era-compiler-solidity"
 TOOL_NAME="zksolc"
 TOOL_TEST="zksolc --version"
 
@@ -12,12 +12,7 @@ fail() {
 	exit 1
 }
 
-# NOTE: You might want to remove this if <YOUR TOOL> is not hosted on GitHub releases.
-if [ -n "${GITHUB_API_TOKEN:-}" ]; then
-	curl_opts=("${curl_opts[@]}" -H "Authorization: token $GITHUB_API_TOKEN")
-fi
-
-# curl_opts=(-fsSL)
+curl_opts=(-fsSL)
 
 sort_versions() {
 	sed 'h; s/[+-]/./g; s/.p\([[:digit:]]\)/.z\1/; s/$/.z/; G; s/\n/ /' |

@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for <YOUR TOOL>.
-GH_REPO="https://github.com/matter-labs/zksolc-bin"
+GH_REPO="https://github.com/matter-labs/era-compiler-solidit"
 TOOL_NAME="zksolc"
 TOOL_TEST="zksolc --version"
 
@@ -16,6 +16,8 @@ fail() {
 if [ -n "${GITHUB_API_TOKEN:-}" ]; then
 	curl_opts=("${curl_opts[@]}" -H "Authorization: token $GITHUB_API_TOKEN")
 fi
+
+# curl_opts=(-fsSL)
 
 sort_versions() {
 	sed 'h; s/[+-]/./g; s/.p\([[:digit:]]\)/.z\1/; s/$/.z/; G; s/\n/ /' |
@@ -40,7 +42,7 @@ download_release() {
 	filename="$2"
 
 	# TODO: Adapt the release URL convention for <YOUR TOOL>
-	url="$GH_REPO/blob/main/macosx-arm64/zksolc-macosx-arm64-v${version}"
+	url="$GH_REPO/releases/download/${version}/zksolc-macosx-arm64-v${version}"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"

@@ -2,10 +2,18 @@
 
 set -euo pipefail
 
-# TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for <YOUR TOOL>.
 GH_REPO="http://github.com/matter-labs/era-compiler-solidity"
 TOOL_NAME="zksolc"
 TOOL_TEST="zksolc --version"
+
+case $(uname -s) in
+  'Linux')
+    OS="linux-amd64-musl"
+    ;;
+  'Darwin')
+    OS="macosx-arm64"
+    ;;
+esac
 
 fail() {
 	echo -e "asdf-$TOOL_NAME: $*"
@@ -24,8 +32,6 @@ list_github_tags() {
 }
 
 list_all_versions() {
-	# TODO: Adapt this. By default we simply list the tag names from GitHub releases.
-	# Change this function if <YOUR TOOL> has other means of determining installable versions.
 	list_github_tags
 }
 
@@ -34,8 +40,7 @@ download_release() {
 	version="$1"
 	filename="$2"
 
-	# TODO: Adapt the release URL convention for <YOUR TOOL>
-	url="$GH_REPO/releases/download/${version}/zksolc-macosx-arm64-v${version}"
+	url="$GH_REPO/releases/download/${version}/zksolc-$OS-v${version}"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"

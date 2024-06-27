@@ -1,6 +1,6 @@
 # asdf_zksolc
 
-zksolc compiler plugin for asdf version manager.
+[zksolc](https://github.com/matter-labs/era-compiler-solidity) compiler plugin for asdf version manager.
 
 ## Pre-requisites
 

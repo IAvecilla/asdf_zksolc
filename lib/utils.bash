@@ -6,12 +6,12 @@ GH_REPO="http://github.com/matter-labs/zksolc-bin"
 TOOL_NAME="zksolc"
 TOOL_TEST="zksolc --version"
 case $(uname -s) in
-  'Linux')
-    OS="linux-amd64-musl"
-    ;;
-  'Darwin')
-    OS="macosx-arm64"
-    ;;
+'Linux')
+	OS="linux-amd64-musl"
+	;;
+'Darwin')
+	OS="macosx-arm64"
+	;;
 esac
 
 fail() {

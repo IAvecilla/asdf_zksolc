@@ -32,7 +32,7 @@ asdf install zksolc latest
 asdf global zksolc latest
 ```
 
-To test that everyone is workin as expected check the installed version
+To test that everything is working as expected, check the installed version
 
 ```bash
 # Should output the last version of the compiler

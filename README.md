@@ -2,7 +2,7 @@
 
 [zksolc](https://github.com/matter-labs/era-compiler-solidity) compiler plugin for asdf version manager.
 
-## Pre-requisites
+## Prerequisites
 
 This plugin does NOT install the solidity compiler `solc` that `zksolc` needs to work correctly.
 

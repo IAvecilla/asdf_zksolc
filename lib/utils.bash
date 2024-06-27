@@ -2,10 +2,9 @@
 
 set -euo pipefail
 
-GH_REPO="http://github.com/matter-labs/era-compiler-solidity"
+GH_REPO="http://github.com/matter-labs/zksolc-bin"
 TOOL_NAME="zksolc"
 TOOL_TEST="zksolc --version"
-
 case $(uname -s) in
   'Linux')
     OS="linux-amd64-musl"
@@ -40,7 +39,7 @@ download_release() {
 	version="$1"
 	filename="$2"
 
-	url="$GH_REPO/releases/download/${version}/zksolc-$OS-v${version}"
+	url="$GH_REPO/releases/download/v${version}/zksolc-$OS-v${version}"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"

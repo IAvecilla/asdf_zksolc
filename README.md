@@ -6,7 +6,7 @@
 
 This plugin does NOT install the solidity compiler `solc` that `zksolc` needs to work correctly.
 
-See how to install it [here](https://docs.soliditylang.org/en/latest/installing-solidity.html) or add the correct [plugin](https://github.com/diegodorado/asdf-solidity) and follow the instructions to install it.
+See how to install it [here](https://docs.soliditylang.org/en/latest/installing-solidity.html) or add the correct [plugin](https://github.com/diegodorado/asdf-solidity) and follow the instructions.
 
 ## Install
 
